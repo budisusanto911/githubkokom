@@ -7,7 +7,7 @@
         tools:context=".ui.login.Login">
 
     <ImageView
-            android:src="@drawable/icon"
+            android:src="@drawable/easy"
             android:id="@+id/itemImg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                 android:paddingBottom="50dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
-                android:text="Login"
+                android:text="Silahkan Login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
     </LinearLayout>
