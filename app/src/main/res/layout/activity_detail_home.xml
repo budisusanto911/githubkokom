@@ -1,155 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
-    <LinearLayout
-        android:layout_marginStart="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:id="@+id/container1"
-        android:layout_marginLeft="10dp">
-        <TextView
-            android:gravity="end"
-            android:textAlignment="textEnd"
-            android:text="No. Transaksi CR"
-            android:layout_weight="1"
-            android:id="@+id/nomorCR"
-            android:padding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"/>
-        <TextView
-            android:text=""
-            android:layout_weight="1"
-            android:id="@+id/no"
-            android:padding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+  <LinearLayout
+      android:id="@+id/container1"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:layout_marginStart="10dp"
+      android:background="@color/white"
+      android:orientation="horizontal"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/toolbar_view">
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginStart="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/container1"
+    <TextView
+        android:id="@+id/nomorCR"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:id="@+id/container2"
-        android:layout_marginLeft="10dp">
-        <TextView
-            android:textAlignment="textEnd"
-            android:text="Jumlah"
-            android:layout_weight="1"
-            android:id="@+id/tot"
-            android:padding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:textStyle="bold"/>
-        <TextView
-            android:text=""
-            android:layout_weight="1"
-            android:id="@+id/total"
-            android:padding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        android:layout_weight="1"
+        android:gravity="end"
+        android:padding="5dp"
+        android:text="No. Trasaksi : "
+        android:textAlignment="textEnd" />
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginStart="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/container2"
+    <TextView
+        android:id="@+id/no"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:id="@+id/container3"
-        android:layout_marginLeft="10dp">
-        <TextView
-            android:gravity="end"
-            android:textAlignment="textEnd"
-            android:text="Tanggal"
-            android:layout_weight="1"
-            android:id="@+id/tggl"
-            android:padding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"/>
-        <TextView
-            android:text=""
-            android:layout_weight="1"
-            android:id="@+id/tgl"
-            android:padding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:text="" />
 
-    </LinearLayout>
-    <LinearLayout
-            android:layout_marginStart="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/container3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@color/white"
-            android:id="@+id/container"
-        android:layout_marginLeft="10dp">
-        <TextView
-                android:text="No."
-                android:layout_weight="1.2"
-                android:id="@+id/id"
-                android:padding="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textAlignment="center"/>
-        <TextView
-                android:text="Sub-Cost Code"
-                android:layout_weight="1"
-                android:id="@+id/nama"
-                android:padding="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textAlignment="center"/>
-        <TextView
-                android:text="Uraian"
-                android:layout_weight="1"
-                android:id="@+id/jumlah"
-                android:padding="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textAlignment="center"/>
-        <TextView
-                android:text="Nominal"
-                android:layout_weight="1"
-                android:id="@+id/tanggal"
-                android:padding="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textAlignment="center"/>
-    </LinearLayout>
-    <android.support.v7.widget.RecyclerView
-            android:padding="16dp"
-            android:id="@+id/list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/container"/>
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/container2"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:layout_marginStart="10dp"
+      android:background="@color/white"
+      android:orientation="horizontal"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/container1">
+
+    <TextView
+        android:id="@+id/tot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:padding="5dp"
+        android:text="Jumlah : "
+        android:textAlignment="textEnd" />
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:text="" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/container3"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:layout_marginStart="10dp"
+      android:background="@color/white"
+      android:orientation="horizontal"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/container2">
+
+    <TextView
+        android:id="@+id/tggl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:padding="5dp"
+        android:text="Tanggal : "
+        android:textAlignment="textEnd" />
+
+    <TextView
+        android:id="@+id/tgl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:text="" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/container"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:layout_marginStart="10dp"
+      android:layout_marginTop="@dimen/size_16"
+      android:background="@color/white"
+      android:orientation="horizontal"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/container3">
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.2"
+        android:padding="5dp"
+        android:text="Id" />
+
+    <TextView
+        android:id="@+id/nama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:text="Sub CR" />
+
+    <TextView
+        android:id="@+id/jumlah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:text="Uraian" />
+
+    <TextView
+        android:id="@+id/tanggal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:text="Nominal" />
+  </LinearLayout>
+
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/list"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="16dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/container" />
+
+  <include
+      layout="@layout/toolbar_view"
+      android:id="@+id/toolbar_view" />
 </android.support.constraint.ConstraintLayout>

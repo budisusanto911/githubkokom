@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.kotlin.mvp.androidmvparchitexturekotlin">
 
   <application
       android:name=".NewsApp"
       android:allowBackup="true"
-      android:icon="@mipmap/simab_launcher"
-      android:label="SIMAB"
-      android:roundIcon="@mipmap/simab_launcher_round"
+      android:icon="@mipmap/ic_simab"
+      android:label="@string/app_name"
+      android:roundIcon="@mipmap/ic_simab_round"
       android:supportsRtl="true"
       android:theme="@style/AppTheme"
-      android:usesCleartextTraffic="true">
+      android:usesCleartextTraffic="true"
+      tools:ignore="AllowBackup,UnusedAttribute">
     <activity
         android:name=".ui.home.home"
         android:exported="true"
         android:label="@string/title_activity_home"
         android:theme="@style/AppTheme.NoActionBar" />
     <activity
+        android:name=".ui.add.AddActivity"
+        android:exported="true"
+        android:label="Add Detail"
+        android:theme="@style/AppTheme.NoActionBar" />
+    <activity
         android:name=".ui.splash.SplashActivity"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme.NoActionBar"
+        android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
@@ -32,15 +40,18 @@
     <activity
         android:name=".ui.detail.DetailActivity"
         android:exported="true"
-        android:label="@string/title_activity_home" />
+        android:label="@string/title_activity_home"
+        android:theme="@style/AppTheme.NoActionBar" />
     <activity
         android:name=".ui.login.LoginActivity"
         android:exported="true"
         android:label="@string/title_activity_home"
         android:theme="@style/AppTheme.NoActionBar" />
   </application>
-  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.INTERNET"
+      tools:ignore="ManifestOrder" />
 
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 </manifest>

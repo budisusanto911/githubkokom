@@ -9,13 +9,12 @@
         android:id="@+id/itemImg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
         android:src="@drawable/easy"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
         tools:ignore="ContentDescription" />
 
     <TextView
@@ -24,7 +23,7 @@
             android:textSize="32dp"
             android:id="@+id/text"
             android:text="Sistem Manajemen Anggaran &amp; Belanja"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/itemImg"
             app:layout_constraintStart_toStartOf="parent"

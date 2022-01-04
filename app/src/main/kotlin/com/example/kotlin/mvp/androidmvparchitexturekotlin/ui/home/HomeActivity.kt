@@ -1,5 +1,6 @@
 package com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.view.Menu
@@ -9,14 +10,9 @@ import android.support.v4.view.GravityCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -30,8 +26,9 @@ import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.home.gallery.Galle
 import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.home.item.HomeFragment
 import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.home.slideshow.SlideshowFragment
 import com.example.kotlin.mvp.androidmvparchitexturekotlin.utils.SessionManager
-import com.google.gson.Gson
 import javax.inject.Inject
+import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.login.LoginActivity
+
 
 class home : BaseActivity(), ContractView, BottomNavigationView.OnNavigationItemSelectedListener, NavigationView.OnNavigationItemSelectedListener  {
 
@@ -92,11 +89,9 @@ class home : BaseActivity(), ContractView, BottomNavigationView.OnNavigationItem
         email.text = user?.get("user").toString()
         Glide.with(this@home)
           .load(user?.get("foto"))
-          .error(R.drawable.easy)
+          .error(R.drawable.icon)
           .into(iv)
       }
-
-
     }
   }
 
@@ -105,6 +100,21 @@ class home : BaseActivity(), ContractView, BottomNavigationView.OnNavigationItem
     menuInflater.inflate(R.menu.home, menu)
     return true
   }
+
+  override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    return when (item.itemId) {
+      R.id.action_settings ->   {
+        sessionManager?.clearData()
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+        return true
+      }
+      // Action goes here
+      else -> super.onOptionsItemSelected(item)
+    }
+  }
+
 
   override fun onSupportNavigateUp(): Boolean {
     val navController = findNavController(id.nav_host_fragment_content_home)
@@ -130,8 +140,15 @@ class home : BaseActivity(), ContractView, BottomNavigationView.OnNavigationItem
     var fragment: Fragment? = null
     when (item.itemId) {
       id.home_menu -> fragment = HomeFragment()
-      id.search_menu -> fragment = GalleryFragment()
-      id.favorite_menu -> fragment = SlideshowFragment()
+      id.search_menu -> fragment = SlideshowFragment()
+      id.favorite_menu -> fragment = GalleryFragment()
+      id.logout ->  {
+        sessionManager?.clearData()
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+        return false
+      }
       id.account_menu -> {
         binding.drawerLayout.openDrawer(GravityCompat.START)
         return false

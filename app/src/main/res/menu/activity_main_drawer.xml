@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:showIn="navigation_view">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/home_menu"
-            android:icon="@drawable/ic_home"
-            android:title="@string/menu_home"/>
-        <item
-            android:id="@+id/search_menu"
-            android:icon="@drawable/ic_baseline_search_24"
-            android:title="@string/menu_gallery"/>
-        <item
-            android:id="@+id/favorite_menu"
-            android:icon="@drawable/ic_notification"
-            android:title="@string/menu_slideshow"/>
-        <item
-            android:id="@+id/nav_setting"
-            android:icon="@drawable/ic_baseline_settings_applications_24"
-            android:title="@string/menu_setting" />
-    </group>
+  <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/home_menu"
+        android:icon="@drawable/ic_home"
+        android:title="@string/menu_home" />
+    <item
+        android:id="@+id/search_menu"
+        android:icon="@drawable/ic_book"
+        android:title="@string/menu_gallery" />
+    <item
+        android:id="@+id/favorite_menu"
+        android:icon="@drawable/ic_search"
+        android:title="@string/menu_slideshow" />
+    <item
+        android:id="@+id/nav_setting"
+        android:icon="@drawable/ic_setting"
+        android:title="@string/menu_setting" />
+
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Logout" />
+  </group>
 </menu>

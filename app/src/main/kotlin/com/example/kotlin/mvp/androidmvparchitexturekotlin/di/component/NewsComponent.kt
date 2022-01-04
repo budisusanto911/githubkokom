@@ -2,7 +2,9 @@ package com.example.kotlin.mvp.androidmvparchitexturekotlin.di
 
 import androidachitecturecomponent.example.di.AppComponent
 import com.example.kotlin.mvp.androidmvparchitexturekotlin.di.scope.NewsScope
+import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.add.AddActivity
 import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.detail.DetailActivity
+import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.home.gallery.GalleryFragment
 import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.home.home
 import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.home.item.HomeFragment
 import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.login.LoginActivity
@@ -24,5 +26,7 @@ interface NewsComponent {
     fun inject(view: NewsActivity)
     fun inject(view: SplashActivity)
     fun inject(view: HomeFragment)
+    fun inject(view: GalleryFragment)
     fun inject(view: DetailActivity)
+    fun inject(view: AddActivity)
 }

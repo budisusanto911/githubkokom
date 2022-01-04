@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">SIMAB Mobile</string>
+  <string name="app_name">SIMAB</string>
   <string name="try_again_btn">Retry</string>
   <string name="message_error_has_occurred">An error has occurred</string>
 
@@ -22,7 +22,7 @@
 
   <string name="menu_home">Home</string>
   <string name="menu_all">Menu</string>
-  <string name="menu_gallery">Rekap CR</string>
-  <string name="menu_slideshow">Notifikasi</string>
-  <string name="menu_setting">Setting</string>
+  <string name="menu_gallery">Rekap</string>
+  <string name="menu_slideshow">Cari CR</string>
+  <string name="menu_setting">Pengaturan</string>
 </resources>

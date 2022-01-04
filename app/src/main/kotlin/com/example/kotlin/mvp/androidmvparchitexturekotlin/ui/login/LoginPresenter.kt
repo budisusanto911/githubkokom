@@ -39,7 +39,7 @@ class LoginPresenter(val mLocalDataSource: LocalDataSource, val mRemoteDataSourc
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
 
-               //   Log.i(TAG, "getArticlesFromApi: " + Gson().toJson(response))
+                 Log.i(TAG, "getArticlesFromApi: " + Gson().toJson(response))
                     if (!isViewAttached()) return@subscribe
 
                     getView()?.hideLoading()

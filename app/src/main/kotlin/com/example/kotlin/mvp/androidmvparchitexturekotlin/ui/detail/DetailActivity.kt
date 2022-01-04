@@ -1,5 +1,6 @@
 package com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.detail
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
@@ -11,6 +12,7 @@ import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.base.BaseActivity
 import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.detail.DetailContract.ContractView
 import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.home.item.HomeAdapter
 import com.example.kotlin.mvp.androidmvparchitexturekotlin.utils.SessionManager
+import com.example.kotlin.mvp.androidmvparchitexturekotlin.utils.toRupiah
 import com.google.gson.Gson
 import java.util.ArrayList
 import javax.inject.Inject
@@ -54,12 +56,26 @@ class DetailActivity : BaseActivity(), ContractView, DetailAdapter.OnItemClickLi
 
     }
 
+    override fun setTotal(item: ItemHome, totalItem: Double) {
+        binding.run {
+            no.text = item.cr_no_hdr
+            total.text = toRupiah(totalItem)
+            tgl.text = item.cr_tanggal
+        }
+
+    }
+    @SuppressLint("SetTextI18n")
     override fun setUp() {
         binding.run {
+            setSupportActionBar(toolbarView.toolbar)
+            toolbarView.tvPageTitle.text = "Detail item"
             val mLayoutManager = LinearLayoutManager(this@DetailActivity)
             list.layoutManager = mLayoutManager
             list.addItemDecoration(DividerItemDecoration(this@DetailActivity, LinearLayoutManager.VERTICAL))
             list.adapter = mAdapter
+
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setDisplayShowHomeEnabled(true)
         }
 
     }

@@ -8,4 +8,33 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TextLabel" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Button">
+        <item name="android:paddingLeft">@dimen/spacing_small</item>
+        <item name="android:paddingRight">@dimen/spacing_small</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/bg_button</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Button.Light">
+        <item name="android:background">@drawable/bg_button_light</item>
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="textNormalBlue">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">@dimen/font_16</item>
+        <item name="android:lineSpacingMultiplier">1.21</item>
+    </style>
+
 </resources>

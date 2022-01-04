@@ -16,57 +16,61 @@ import com.google.gson.Gson
  * my.alidouiri@gmail.com
  */
 
-class DetailAdapter(private var context: Context, private var items: List<ItemHome>, private var listener: OnItemClickListener) :
-        RecyclerView.Adapter<DetailAdapter.ViewHolder>() {
+class DetailAdapter(
+  private var context: Context,
+  private var items: List<ItemHome>,
+  private var listener: OnItemClickListener,
+) :
+  RecyclerView.Adapter<DetailAdapter.ViewHolder>() {
   private lateinit var binding: ItemHomeBinding
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        val v = LayoutInflater.from(parent?.context).inflate(R.layout.item_home, parent, false)
-      binding = ItemHomeBinding.bind(v)
-        return ViewHolder(binding)
+    val v = LayoutInflater.from(parent?.context).inflate(R.layout.item_home, parent, false)
+    binding = ItemHomeBinding.bind(v)
+    return ViewHolder(binding)
 
+  }
+
+  override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+    holder?.bind(context, items[position], listener)
+
+
+  }
+
+  override fun getItemCount(): Int = items?.size
+
+  class ViewHolder(binding: ItemHomeBinding) : RecyclerView.ViewHolder(binding.root) {
+
+    val id = binding.id
+    val nama = binding.nama
+    val jumlah = binding.jumlah
+    val tanggal = binding.tanggal
+
+    fun bind(context: Context, item: ItemHome?, listener: OnItemClickListener) {
+
+      if (item != null) {
+        id.text = item.index.toString()
+        nama.text = item.cr_id_dtl.toString()
+        jumlah.text = item.cr_uraian
+        tanggal.text = toRupiah(item.cr_dtl_nominal ?: 0.0)
+
+      }
+
+      itemView.setOnClickListener { view -> listener.onItemClick(item!!) }
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+  }
 
-        holder?.bind(context, items[position], listener)
+  fun setItems(items: List<ItemHome>) {
+    this.items = items
+    Log.i("TAG", "setItems: " + Gson().toJson(items))
+    notifyDataSetChanged()
+  }
 
+  interface OnItemClickListener {
 
-    }
+    fun onItemClick(item: ItemHome)
 
-    override fun getItemCount(): Int = items?.size
-
-    class ViewHolder(binding: ItemHomeBinding) : RecyclerView.ViewHolder(binding.root) {
-
-        val id = binding.id
-        val nama = binding.nama
-        val jumlah = binding.jumlah
-        val tanggal = binding.tanggal
-
-        fun bind(context: Context, item: ItemHome?, listener: OnItemClickListener) {
-
-            if (item != null) {
-              id.text = item.index.toString()
-              nama.text = item.cr_id_dtl.toString()
-              jumlah.text = item.cr_uraian
-              tanggal.text =toRupiah(item.cr_dtl_nominal ?: 0.0)
-
-            }
-
-            itemView.setOnClickListener { view -> listener.onItemClick(item!!) }
-        }
-
-    }
-
-    fun setItems(items: List<ItemHome>) {
-      this.items = items
-      Log.i("TAG", "setItems: "+ Gson().toJson(items))
-      notifyDataSetChanged()
-    }
-
-    interface OnItemClickListener {
-
-        fun onItemClick(item: ItemHome)
-
-    }
+  }
 }

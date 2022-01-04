@@ -20,6 +20,10 @@ data class Home(
         var success: Int = 0,
 
         @Expose
+        @SerializedName("total")
+        var total: Double = 0.0,
+
+        @Expose
         @SerializedName("status")
-        var status: Boolean = false
+        var status: Boolean = false,
 )

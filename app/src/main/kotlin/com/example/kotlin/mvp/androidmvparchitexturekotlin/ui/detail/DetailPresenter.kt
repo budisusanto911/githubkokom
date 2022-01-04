@@ -18,38 +18,44 @@ import io.reactivex.schedulers.Schedulers
  * my.alidouiri@gmail.com
  */
 
-class DetailPresenter(val mLocalDataSource: LocalDataSource, val mRemoteDataSource: RemoteDataSource) : BasePresenter<ContractView>(),
+class DetailPresenter(
+  val mLocalDataSource: LocalDataSource,
+  val mRemoteDataSource: RemoteDataSource,
+) : BasePresenter<ContractView>(),
   ContractPresenter {
 
-    private final val TAG = DetailPresenter::class.java.simpleName
+  private final val TAG = DetailPresenter::class.java.simpleName
 
 
+  override fun getArticlesFromApi(user: String) {
+    getView()?.showLoading()
+    mDisposable = mRemoteDataSource.getHomeF(user)
+      .subscribeOn(Schedulers.io())
+      .observeOn(AndroidSchedulers.mainThread())
+      .subscribe({ response ->
 
-    override fun getArticlesFromApi(user: String) {
-        getView()?.showLoading()
-        mDisposable = mRemoteDataSource.getHomeF(user)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
+        //   Log.i(TAG, "getArticlesFromApi: " + Gson().toJson(response))
+        if (!isViewAttached()) return@subscribe
 
-               //   Log.i(TAG, "getArticlesFromApi: " + Gson().toJson(response))
-                    if (!isViewAttached()) return@subscribe
+        getView()?.hideLoading()
+        if (response.isSuccessful) {
+          val total = response.body()?.total
+          response.body()?.data?.let {
+            getView()?.setTotal(it[0], total ?: 0.0)
+            getView()?.onArtilesReady(it)
+          }
+        }
 
-                    getView()?.hideLoading()
-                   if (response.isSuccessful) {
-                      response.body()?.data?.let { getView()?.onArtilesReady(it) }
-                    }
+      },
+        { error ->
+          getView()?.hideLoading();Log.e(TAG, "{$error.message}")
+        },
+        {
+          getView()?.hideLoading()
+          Log.d(TAG, "completed")
+        })
 
-                },
-                        { error ->
-                            getView()?.hideLoading();Log.e(TAG, "{$error.message}")
-                        },
-                        {
-                            getView()?.hideLoading()
-                            Log.d(TAG, "completed")
-                        })
-
-    }
+  }
 
 
 }

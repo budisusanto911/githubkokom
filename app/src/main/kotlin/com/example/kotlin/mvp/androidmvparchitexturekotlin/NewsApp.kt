@@ -9,8 +9,8 @@ import com.example.kotlin.mvp.androidmvparchitexturekotlin.di.NewsComponent
 import com.example.kotlin.mvp.androidmvparchitexturekotlin.di.NewsModule
 
 /**
- * Created by Handi Komara 12/2021.
- * handikomara22@gmail.com
+ * Created by Ali DOUIRI on 27/04/2018.
+ * my.alidouiri@gmail.com
  */
 
 class NewsApp : Application() {

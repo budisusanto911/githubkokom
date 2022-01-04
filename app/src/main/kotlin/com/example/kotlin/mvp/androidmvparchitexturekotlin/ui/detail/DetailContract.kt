@@ -20,6 +20,7 @@ interface DetailContract {
     }
 
     interface ContractView : IBaseView {
+        fun setTotal(item: ItemHome, totalItem: Double)
         fun onArtilesReady(items: List<ItemHome>)
     }
 }

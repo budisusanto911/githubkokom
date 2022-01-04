@@ -13,6 +13,7 @@ import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.base.BaseActivity
 import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.home.home
 import com.example.kotlin.mvp.androidmvparchitexturekotlin.ui.login.LoginContract.ContractView
 import com.example.kotlin.mvp.androidmvparchitexturekotlin.utils.SessionManager
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_login.view.password
 import kotlinx.android.synthetic.main.activity_login.view.user
 import javax.inject.Inject
@@ -49,7 +50,7 @@ class LoginActivity : BaseActivity(), ContractView {
             btnLogin.setOnClickListener {
                 if (user.text.toString().isNotEmpty() && password.text.toString().isNotEmpty())
                 mPresenter.getArticlesFromApi(user.text.toString(), password.text.toString())
-                else Toast.makeText(this@LoginActivity, "Silahkan isi username dan pasword", Toast.LENGTH_SHORT).show()
+                else Toast.makeText(this@LoginActivity, "Mohon User dan pasword diisi", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -61,10 +62,16 @@ class LoginActivity : BaseActivity(), ContractView {
     }
 
     override fun toHome(id: Login) {
+        if (!id.status) {
+            Toast.makeText(this, "User dan password salah", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        sessionManager.createLoginSession(id.itemLogin?.id, binding.user.text.toString(), binding.password.text.toString(), id.itemLogin?.name, id.itemLogin?.avatar)
+
         val intent = Intent(this, home::class.java)
         startActivity(intent)
-        sessionManager.createLoginSession(id.itemLogin?.id, binding.user.text.toString(), binding.password.text.toString(), id.itemLogin?.name, id.itemLogin?.avatar)
-        finish()
+         finish()
     }
 
     override fun onArtilesReady(items: List<ArticleEntity>) {
