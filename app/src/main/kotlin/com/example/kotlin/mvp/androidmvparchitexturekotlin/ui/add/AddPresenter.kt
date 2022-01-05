@@ -146,7 +146,7 @@ class AddPresenter(val mLocalDataSource: LocalDataSource, val mRemoteDataSource:
   }
 
   override fun getUraian(p: String, i: String, c: String, k: String) {
-    getView()?.showLoading()
+   // getView()?.showLoading()
     mDisposable = mRemoteDataSource.getUraian(p, i, c, k)
       .subscribeOn(Schedulers.io())
       .observeOn(AndroidSchedulers.mainThread())
@@ -155,7 +155,7 @@ class AddPresenter(val mLocalDataSource: LocalDataSource, val mRemoteDataSource:
         //   Log.i(TAG, "getArticlesFromApi: " + Gson().toJson(response))
         if (!isViewAttached()) return@subscribe
 
-        getView()?.hideLoading()
+        //getView()?.hideLoading()
 
         if (response.isSuccessful) {
 
