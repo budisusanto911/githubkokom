@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+  <include
+      layout="@layout/toolbar_view"
+      android:id="@+id/toolbar_view" />
+
+  <androidx.core.widget.NestedScrollView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/toolbar_view">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_10"
+        android:orientation="vertical">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_marginBottom="@dimen/spacing_small"
+          android:layout_marginTop="@dimen/spacing_small"
+          android:background="?selectableItemBackground"
+          android:text="CostCode"
+          tools:ignore="HardcodedText"
+          style="@style/textNormalBlue" />
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/kategori"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edittext_height"
+            android:layout_weight="1"
+            android:background="@drawable/bg_spinner"
+            android:drawSelectorOnTop="true"
+            android:textSize="@dimen/font_16" />
+
+        <Spinner
+            android:id="@+id/sub_kategori"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edittext_height"
+            android:layout_weight="1"
+            android:background="@drawable/bg_spinner"
+            android:drawSelectorOnTop="true"
+            android:textSize="@dimen/font_16" />
+
+        <Spinner
+            android:id="@+id/detail_kategori"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edittext_height"
+            android:layout_weight="1"
+            android:background="@drawable/bg_spinner"
+            android:drawSelectorOnTop="true"
+            android:textSize="@dimen/font_16" />
+
+
+        <Spinner
+            android:id="@+id/sub_detail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edittext_height"
+            android:layout_weight="1"
+            android:background="@drawable/bg_spinner"
+            android:drawSelectorOnTop="true"
+            android:textSize="@dimen/font_16" />
+
+      </LinearLayout>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_marginBottom="@dimen/spacing_small"
+          android:layout_marginTop="@dimen/spacing_small"
+          android:background="?selectableItemBackground"
+          android:text="Keterangan"
+          tools:ignore="HardcodedText"
+          style="@style/textNormalBlue" />
+
+      <TextView
+          android:id="@+id/keterangan"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/edittext_height"
+          android:background="@drawable/textview"
+          android:drawSelectorOnTop="true"
+          android:gravity="center_vertical"
+          android:paddingLeft="@dimen/size_16"
+          android:paddingStart="@dimen/size_16"
+          android:textSize="@dimen/font_16"
+          tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_marginBottom="@dimen/spacing_small"
+          android:layout_marginTop="@dimen/spacing_small"
+          android:background="?selectableItemBackground"
+          android:text="Nominal"
+          tools:ignore="HardcodedText"
+          style="@style/textNormalBlue" />
+
+      <EditText
+          android:id="@+id/nominal"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/edittext_height"
+          android:background="@drawable/textview"
+          android:drawSelectorOnTop="true"
+          android:gravity="center_vertical"
+          android:inputType="number"
+          android:paddingLeft="@dimen/size_16"
+          android:paddingStart="@dimen/size_16"
+          android:textSize="@dimen/font_16"
+          tools:ignore="Autofill,RtlHardcoded,RtlSymmetry" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_marginBottom="@dimen/spacing_small"
+          android:layout_marginTop="@dimen/spacing_small"
+          android:background="?selectableItemBackground"
+          android:text="Keterangan"
+          tools:ignore="HardcodedText"
+          style="@style/textNormalBlue" />
+      <EditText
+          android:id="@+id/uraian"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/edittext_height"
+          android:background="@drawable/textview"
+          android:drawSelectorOnTop="true"
+          android:gravity="center_vertical"
+          android:paddingLeft="@dimen/size_16"
+          android:paddingStart="@dimen/size_16"
+          android:textSize="@dimen/font_16"
+          tools:ignore="Autofill,RtlHardcoded,RtlSymmetry" />
+
+
+      <androidx.appcompat.widget.AppCompatButton
+          android:id="@+id/simpan"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/button_height"
+          android:layout_marginBottom="@dimen/size_16"
+          android:layout_marginTop="@dimen/size_16"
+          android:background="@drawable/bg_button"
+          android:text="Simpan"
+          android:textAllCaps="false"
+          android:textColor="@color/white"
+          android:textSize="@dimen/font_20"
+          tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+
+  </androidx.core.widget.NestedScrollView>
+
+
+
+</RelativeLayout>

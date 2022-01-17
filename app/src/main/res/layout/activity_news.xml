@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
@@ -11,13 +11,14 @@
             android:layout_height="match_parent"
             tools:context="ma.clicwinapp.clickwin.clickwinapp.ui.dashboard.DashboardActivity">
 
-          <android.support.v7.widget.RecyclerView
+          <androidx.recyclerview.widget.RecyclerView
               android:id="@+id/recyclerview"
               android:layout_width="match_parent"
               android:layout_height="match_parent" />
-
-            <include layout="@layout/view_error" />
+            <include
+                android:id="@+id/content_error"
+                layout="@layout/view_error" />
 
         </RelativeLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

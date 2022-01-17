@@ -7,7 +7,7 @@
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
-  <android.support.v7.widget.Toolbar
+  <androidx.appcompat.widget.Toolbar
       android:id="@+id/toolbar"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
         tools:text="Title"
         tools:ignore="SelectableText" />
 
-  </android.support.v7.widget.Toolbar>
+  </androidx.appcompat.widget.Toolbar>
   <View
       android:id="@+id/divider"
       android:layout_width="match_parent"

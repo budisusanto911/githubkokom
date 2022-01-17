@@ -10,7 +10,7 @@
       layout="@layout/toolbar_view"
       android:id="@+id/toolbar_view" />
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar_view">
@@ -20,18 +20,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/size_10"
             android:orientation="vertical">
-
-            <!--      <EditText-->
-            <!--          android:id="@+id/nominal"-->
-            <!--          android:layout_width="match_parent"-->
-            <!--          android:layout_height="@dimen/edittext_height"-->
-            <!--          android:background="@drawable/textview"-->
-            <!--          android:drawSelectorOnTop="true"-->
-            <!--          android:gravity="center_vertical"-->
-            <!--          android:paddingStart="@dimen/size_16"-->
-            <!--          android:paddingLeft="@dimen/size_16"-->
-            <!--          android:textSize="@dimen/font_16"-->
-            <!--          tools:ignore="RtlSymmetry" />-->
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -87,14 +75,14 @@
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="@dimen/font_16"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText,RtlHardcoded" />
 
                     <TextView
                         android:id="@+id/camera"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/size_5"
                         android:layout_marginLeft="@dimen/size_5"
+                        android:layout_marginStart="@dimen/size_5"
                         android:layout_weight="1"
                         android:background="@drawable/bg_button"
                         android:gravity="center_horizontal"
@@ -103,92 +91,42 @@
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="@dimen/font_16"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText,RtlHardcoded" />
                 </LinearLayout>
 
             </FrameLayout>
 
+
             <TextView
-                style="@style/textNormalBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/spacing_small"
                 android:layout_marginBottom="@dimen/spacing_small"
+                android:layout_marginTop="@dimen/spacing_small"
                 android:background="?selectableItemBackground"
-                android:text="Project"
-                tools:ignore="HardcodedText" />
-
-            <Spinner
-                android:id="@+id/kategori"
+                android:text="No CR"
+                tools:ignore="HardcodedText"
+                style="@style/textNormalBlue" />
+            <EditText
+                android:id="@+id/nomorCR"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edittext_height"
-                android:background="@drawable/bg_spinner"
+                android:background="@drawable/textview"
                 android:drawSelectorOnTop="true"
-                android:textSize="@dimen/font_16" />
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/size_16"
+                android:paddingStart="@dimen/size_16"
+                android:textSize="@dimen/font_16"
+                tools:ignore="Autofill,RtlHardcoded,RtlSymmetry" />
 
             <TextView
-                style="@style/textNormalBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/spacing_small"
                 android:layout_marginBottom="@dimen/spacing_small"
-                android:background="?selectableItemBackground"
-                android:text="Induk"
-                tools:ignore="HardcodedText" />
-
-            <Spinner
-                android:id="@+id/sub_kategori"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edittext_height"
-                android:background="@drawable/bg_spinner"
-                android:drawSelectorOnTop="true"
-                android:textSize="@dimen/font_16" />
-
-            <TextView
-                style="@style/textNormalBlue"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/spacing_small"
-                android:layout_marginBottom="@dimen/spacing_small"
-                android:background="?selectableItemBackground"
-                android:text="Cabang"
-                tools:ignore="HardcodedText" />
-
-            <Spinner
-                android:id="@+id/detail_kategori"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edittext_height"
-                android:background="@drawable/bg_spinner"
-                android:drawSelectorOnTop="true"
-                android:textSize="@dimen/font_16" />
-
-            <TextView
-                style="@style/textNormalBlue"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:layout_marginBottom="@dimen/spacing_small"
-                android:background="?selectableItemBackground"
-                android:text="Ranting"
-                tools:ignore="HardcodedText" />
-
-            <Spinner
-                android:id="@+id/sub_detail"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edittext_height"
-                android:background="@drawable/bg_spinner"
-                android:drawSelectorOnTop="true"
-                android:textSize="@dimen/font_16" />
-
-            <TextView
-                style="@style/textNormalBlue"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:layout_marginBottom="@dimen/spacing_small"
                 android:background="?selectableItemBackground"
                 android:text="Tanggal"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText"
+                style="@style/textNormalBlue" />
 
 
             <TextView
@@ -201,63 +139,16 @@
                 android:paddingHorizontal="@dimen/size_16"
                 android:textSize="@dimen/font_16" />
 
-            <TextView
-                style="@style/textNormalBlue"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:layout_marginBottom="@dimen/spacing_small"
-                android:background="?selectableItemBackground"
-                android:text="Keterangan"
-                tools:ignore="HardcodedText" />
 
-            <TextView
-                android:id="@+id/uraian"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edittext_height"
-                android:background="@drawable/textview"
-                android:drawSelectorOnTop="true"
-                android:gravity="center_vertical"
-                android:paddingStart="@dimen/size_16"
-                android:paddingLeft="@dimen/size_16"
-                android:textSize="@dimen/font_16"
-                tools:ignore="RtlSymmetry" />
-
-<!--            <TextView-->
-<!--                style="@style/textNormalBlue"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginTop="@dimen/spacing_small"-->
-<!--                android:layout_marginBottom="@dimen/spacing_small"-->
-<!--                android:background="?selectableItemBackground"-->
-<!--                android:text="Nominal"-->
-<!--                tools:ignore="HardcodedText" />-->
-            <Button
-                android:textAllCaps="false"
-                android:id="@+id/btnTambah"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/bg_button"
-                android:padding="10dp"
-                android:text="Tambah Detail"
-                android:textColor="@android:color/white" />
-
-            <LinearLayout
-                android:id="@+id/layKursus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="5dp"></LinearLayout>
-
-            <android.support.v7.widget.AppCompatButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/simpan"
-                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="150dp"
                 android:layout_height="@dimen/button_height"
-                android:layout_marginTop="@dimen/size_16"
                 android:layout_marginBottom="@dimen/size_16"
+                android:layout_marginTop="@dimen/size_16"
                 android:background="@drawable/bg_button"
-                android:text="Simpan"
+                android:text="Lanjut"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/font_20"
@@ -265,7 +156,7 @@
         </LinearLayout>
 
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
 

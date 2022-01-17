@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
+  <include
+      layout="@layout/toolbar_view"
+      android:id="@+id/toolbar_view" />
+  <ImageView
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/toolbar_view"
+      android:id="@+id/iv_file"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/image_200"
+      android:scaleType="fitCenter"
+      android:src="@android:drawable/ic_menu_camera"
+      tools:ignore="ContentDescription" />
+
 
   <LinearLayout
       android:id="@+id/container1"
@@ -16,7 +30,8 @@
       android:orientation="horizontal"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/toolbar_view">
+      app:layout_constraintTop_toBottomOf="@+id/iv_file"
+      tools:ignore="RtlHardcoded">
 
     <TextView
         android:id="@+id/nomorCR"
@@ -25,8 +40,9 @@
         android:layout_weight="1"
         android:gravity="end"
         android:padding="5dp"
-        android:text="No. Trasaksi : "
-        android:textAlignment="textEnd" />
+        android:text="No. Transaksi : "
+        android:textAlignment="textEnd"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/no"
@@ -48,7 +64,8 @@
       android:orientation="horizontal"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/container1">
+      app:layout_constraintTop_toBottomOf="@id/container1"
+      tools:ignore="RtlHardcoded">
 
     <TextView
         android:id="@+id/tot"
@@ -58,7 +75,8 @@
         android:gravity="end"
         android:padding="5dp"
         android:text="Jumlah : "
-        android:textAlignment="textEnd" />
+        android:textAlignment="textEnd"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/total"
@@ -80,7 +98,8 @@
       android:orientation="horizontal"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/container2">
+      app:layout_constraintTop_toBottomOf="@id/container2"
+      tools:ignore="RtlHardcoded">
 
     <TextView
         android:id="@+id/tggl"
@@ -90,7 +109,8 @@
         android:gravity="end"
         android:padding="5dp"
         android:text="Tanggal : "
-        android:textAlignment="textEnd" />
+        android:textAlignment="textEnd"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tgl"
@@ -113,7 +133,8 @@
       android:orientation="horizontal"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/container3">
+      app:layout_constraintTop_toBottomOf="@+id/container3"
+      tools:ignore="RtlHardcoded">
 
     <TextView
         android:id="@+id/id"
@@ -121,7 +142,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1.2"
         android:padding="5dp"
-        android:text="Id" />
+        android:text="No."
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/nama"
@@ -129,7 +151,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:padding="5dp"
-        android:text="Sub CR" />
+        android:text="No. Detail CR"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/jumlah"
@@ -137,7 +160,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:padding="5dp"
-        android:text="Uraian" />
+        android:text="Uraian"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tanggal"
@@ -145,10 +169,11 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:padding="5dp"
-        android:text="Nominal" />
+        android:text="Nominal"
+        tools:ignore="HardcodedText" />
   </LinearLayout>
 
-  <android.support.v7.widget.RecyclerView
+  <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/list"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -157,7 +182,16 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/container" />
 
-  <include
-      layout="@layout/toolbar_view"
-      android:id="@+id/toolbar_view" />
-</android.support.constraint.ConstraintLayout>
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/add"
+      android:layout_marginBottom="@dimen/size_16"
+      android:backgroundTint="@color/blue"
+      android:src="@drawable/ic_baseline_add_24"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      tools:ignore="ContentDescription,UnusedAttribute" />
+</androidx.constraintlayout.widget.ConstraintLayout>

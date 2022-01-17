@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<merge xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <RelativeLayout
         android:id="@+id/content_error"
@@ -14,7 +14,8 @@
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:layout_centerInParent="true"
-            android:src="@drawable/ic_bad" />
+            android:src="@drawable/ic_bad"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/textview"
