@@ -37,11 +37,6 @@ import com.bumptech.glide.Glide
 import pl.aprilapps.easyphotopicker.MediaFile
 import pl.aprilapps.easyphotopicker.MediaSource
 
-/**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
- */
-
 class AddActivity : BaseActivity(), ContractView {
 
   private lateinit var binding: ActivityAddItemBinding

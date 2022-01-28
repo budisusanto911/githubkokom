@@ -39,6 +39,38 @@ class DetailPresenter(
           response.body()?.data?.let {
             getView()?.setTotal(it[0], total ?: 0.0)
             getView()?.onArtilesReady(it)
+            getView()?.setVisibility(it[0].cr_status == "0")
+          }
+        }
+
+      },
+        { error ->
+          getView()?.hideLoading();Log.e(TAG, "{$error.message}")
+        },
+        {
+          getView()?.hideLoading()
+          Log.d(TAG, "completed")
+        })
+
+  }
+
+  override fun save(user: String, status: String) {
+    getView()?.showLoading()
+    mDisposable = mRemoteDataSource.confirm(user, status)
+      .subscribeOn(Schedulers.io())
+      .observeOn(AndroidSchedulers.mainThread())
+      .subscribe({ response ->
+
+        //   Log.i(TAG, "getArticlesFromApi: " + Gson().toJson(response))
+        if (!isViewAttached()) return@subscribe
+
+        getView()?.hideLoading()
+        if (response.isSuccessful) {
+          val total = response.body()?.total
+          response.body()?.data?.let {
+            getView()?.setTotal(it[0], total ?: 0.0)
+            getView()?.onArtilesReady(it)
+            getView()?.setVisibility(it[0].cr_status == "0")
           }
         }
 

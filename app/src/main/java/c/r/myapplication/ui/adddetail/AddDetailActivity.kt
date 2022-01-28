@@ -19,11 +19,6 @@ import javax.inject.Inject
 import c.r.myapplication.ui.adddetail.AdddetailContract.ContractView
 import java.util.ArrayList
 
-/**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
- */
-
 class AddDetailActivity : BaseActivity(), ContractView {
 
   private lateinit var binding: ActivityAddDetailItemBinding

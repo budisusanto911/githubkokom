@@ -68,6 +68,13 @@ interface RemoteService {
         @Query("id") id: String,
     ) : Flowable<Response<Home>>
 
+    @FormUrlEncoded
+    @POST("updateStatus")
+    fun confirm(
+        @Field("id")  id: String,
+        @Field("status")  status: String,
+    ) : Flowable<Response<Home>>
+
     @GET(".")
     fun getArticlesFromApi() : Flowable<Response<News>>
 

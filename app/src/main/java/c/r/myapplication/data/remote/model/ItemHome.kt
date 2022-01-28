@@ -3,16 +3,16 @@ package c.r.myapplication.data.remote.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-/**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
- */
 
 data class ItemHome(
 
         @Expose
         @SerializedName("cr_id_hdr")
         var cr_id_hdr: String = "",
+
+        @Expose
+        @SerializedName("cr_status")
+        var cr_status: String = "",
 
         @Expose
         @SerializedName("cr_no_hdr")

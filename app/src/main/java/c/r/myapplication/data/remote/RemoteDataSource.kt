@@ -15,10 +15,6 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Response
 
-/**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
- */
 
 class RemoteDataSource constructor(private val remoteService: RemoteService)  {
 
@@ -26,6 +22,7 @@ class RemoteDataSource constructor(private val remoteService: RemoteService)  {
     fun login(user: String, password: String) : Flowable<Response<Login>> = remoteService.login(user, password)
     fun getHomeF(id: String) : Flowable<Response<Home>> = remoteService.getHomeF(id)
     fun getHome() : Flowable<Response<Home>> = remoteService.getHome()
+    fun confirm(id: String,status: String) : Flowable<Response<Home>> = remoteService.confirm(id, status)
     fun halamancari(date1: String, date2: String) : Flowable<Response<Home>> = remoteService.halamancari(date1, date2)
     fun getKategori() : Flowable<Response<Spinner>> = remoteService.getKategori()
     fun getSubKategori(id: String) : Flowable<Response<Spinner>> = remoteService.getSubKategori(id)

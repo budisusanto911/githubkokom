@@ -1,10 +1,14 @@
 package c.r.myapplication.ui.detail
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog.Builder
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import c.r.myapplication.NewsApp
@@ -20,13 +24,16 @@ import c.r.myapplication.ui.detail.DetailContract.ContractView
 import com.bumptech.glide.Glide
 import java.util.ArrayList
 import javax.inject.Inject
-
-/**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
- */
+import android.content.DialogInterface
 
 class DetailActivity : BaseActivity(), ContractView, OnItemClickListener {
+
+    private val rotateOpen:Animation by lazy {AnimationUtils.loadAnimation(this, R.anim.rotate_open_anim)}
+    private val rotateClose:Animation by lazy {AnimationUtils.loadAnimation(this, R.anim.rotate_close_anim)}
+    private val fromBottom:Animation by lazy {AnimationUtils.loadAnimation(this, R.anim.from_bottom_anim)}
+    private val toBottom:Animation by lazy {AnimationUtils.loadAnimation(this, R.anim.to_bottom_anim)}
+
+    private var clicked = false
 
     private final var id: String? = null
     private final val TAG = DetailActivity::class.java.simpleName
@@ -71,12 +78,74 @@ class DetailActivity : BaseActivity(), ContractView, OnItemClickListener {
             intent.putExtra("cr_tanggal", binding.tgl.text.toString())
             startActivity(intent)
         }
+
+        binding.buttonDetail.setOnClickListener {
+            onButtonDetailClicked()
+        }
+
+        binding.buttonNew.setOnClickListener {
+            val builder = Builder(it.context)
+            builder.setMessage("Konfirmasi selesai input detail?").setPositiveButton("Ya", dialogClickListener)
+                .setNegativeButton("Tidak", dialogClickListener).show()
+        }
+
+    }
+
+    var dialogClickListener = DialogInterface.OnClickListener { dialog, which ->
+        when (which) {
+            DialogInterface.BUTTON_POSITIVE -> {
+                mPresenter.save(id ?: "", "1")
+                dialog.dismiss()
+
+            }
+            DialogInterface.BUTTON_NEGATIVE -> {
+                dialog.dismiss()
+            }
+        }
+    }
+
+    private fun onButtonDetailClicked() {
+        setVisibility(clicked)
+        setAnimation(clicked)
+        clicked = !clicked
+    }
+
+    override fun setVisibility(status: Boolean) {
+        if (!status) {
+            binding.add.visibility = if (status) View.INVISIBLE else View.GONE
+            binding.buttonNew.visibility = if (status) View.INVISIBLE else View.GONE
+        }else{
+            binding.add.visibility = View.GONE
+            binding.buttonNew.visibility = View.GONE
+        }
+    }
+
+    private fun setAnimation(clicked: Boolean) {
+        if(!clicked){
+            binding.add.startAnimation(fromBottom)
+            binding.buttonNew.startAnimation(fromBottom)
+            binding.buttonDetail.startAnimation(rotateOpen)
+        }else{
+            binding.add.startAnimation(toBottom)
+            binding.buttonNew.startAnimation(toBottom)
+            binding.buttonDetail.startAnimation(rotateClose)
+        }
     }
 
     override fun onResume() {
         super.onResume()
         mPresenter.getArticlesFromApi(id ?:"")
     }
+
+//    override fun buttonAdd(status: Boolean) {
+//        if (!clicked) {
+//            binding.add.visibility = if (status) View.VISIBLE else View.GONE
+//            binding.buttonNew.visibility = if (status) View.VISIBLE else View.GONE
+//        }else {
+//            binding.add.visibility = if (status) View.INVISIBLE else View.GONE
+//            binding.buttonNew.visibility = if (status) View.VISIBLE else View.GONE
+//        }
+//    }
 
     override fun setTotal(item: ItemHome, totalItem: Double) {
         binding.run {
