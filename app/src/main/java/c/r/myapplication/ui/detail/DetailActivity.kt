@@ -111,17 +111,11 @@ class DetailActivity : BaseActivity(), ContractView, OnItemClickListener {
     }
 
     override fun setVisibility(status: Boolean) {
-        if (!status) {
-            binding.add.visibility = if (status) View.INVISIBLE else View.GONE
-            binding.buttonNew.visibility = if (status) View.INVISIBLE else View.GONE
-        }else{
-            binding.add.visibility = View.GONE
-            binding.buttonNew.visibility = View.GONE
-        }
+        binding.buttonDetail.visibility = if (status) View.VISIBLE else View.GONE
     }
 
     private fun setAnimation(clicked: Boolean) {
-        if(!clicked){
+        if(clicked){
             binding.add.startAnimation(fromBottom)
             binding.buttonNew.startAnimation(fromBottom)
             binding.buttonDetail.startAnimation(rotateOpen)

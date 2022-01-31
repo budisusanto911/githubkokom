@@ -9,11 +9,6 @@ import c.r.myapplication.ui.detail.DetailContract.ContractView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-/**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
- */
-
 class DetailPresenter(
   val mLocalDataSource: LocalDataSource,
   val mRemoteDataSource: RemoteDataSource,
