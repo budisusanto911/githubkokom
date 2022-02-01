@@ -96,10 +96,12 @@ class DetailActivity : BaseActivity(), ContractView, OnItemClickListener {
             DialogInterface.BUTTON_POSITIVE -> {
                 mPresenter.save(id ?: "", "1")
                 dialog.dismiss()
+                finish()
 
             }
             DialogInterface.BUTTON_NEGATIVE -> {
                 dialog.dismiss()
+                finish()
             }
         }
     }
@@ -112,6 +114,9 @@ class DetailActivity : BaseActivity(), ContractView, OnItemClickListener {
 
     override fun setVisibility(status: Boolean) {
         binding.buttonDetail.visibility = if (status) View.VISIBLE else View.GONE
+        binding.add.visibility = if (status) View.VISIBLE else View.GONE
+        binding.buttonNew.visibility = if (status) View.VISIBLE else View.GONE
+        if (status) setAnimation(status)
     }
 
     private fun setAnimation(clicked: Boolean) {
