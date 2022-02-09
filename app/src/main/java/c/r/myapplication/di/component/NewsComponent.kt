@@ -15,8 +15,8 @@ import c.r.myapplication.ui.splash.SplashActivity
 import dagger.Component
 
 /**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
+ * Created by Handi Komara.
+ * handikomara22@gmail.com
  */
 
 @NewsScope

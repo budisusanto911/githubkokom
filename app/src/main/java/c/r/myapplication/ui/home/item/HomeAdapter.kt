@@ -11,8 +11,8 @@ import c.r.myapplication.ui.home.item.HomeAdapter.ViewHolder
 import c.r.myapplication.utils.toRupiah
 
 /**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
+ * Created by Handi Komara.
+ * handikomara22@gmail.com
  */
 
 class HomeAdapter(private var context: Context, private var items: List<ItemHome>, private var listener: OnItemClickListener) :

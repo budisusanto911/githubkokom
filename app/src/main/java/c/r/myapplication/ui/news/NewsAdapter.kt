@@ -16,8 +16,8 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 
 /**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
+ * Created by Handi Komara.
+ * handikomara22@gmail.com
  */
 
 class NewsAdapter(private var context: Context, private var items: List<ArticleEntity>, private var listener: OnItemClickListener) :

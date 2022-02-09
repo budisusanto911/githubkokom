@@ -8,8 +8,8 @@ import c.r.myapplication.utils.DialogUtil
 import com.google.android.material.snackbar.Snackbar
 
 /**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
+ * Created by Handi Komara.
+ * handikomara22@gmail.com
  */
 
 open abstract class BaseActivity : AppCompatActivity(), IBaseView {

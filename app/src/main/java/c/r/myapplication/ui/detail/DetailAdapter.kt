@@ -13,8 +13,8 @@ import c.r.myapplication.utils.toRupiah
 import com.google.gson.Gson
 
 /**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
+ * Created by Handi Komara.
+ * handikomara22@gmail.com
  */
 
 class DetailAdapter(

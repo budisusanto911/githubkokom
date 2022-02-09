@@ -5,8 +5,8 @@ import java.lang.annotation.RetentionPolicy
 import javax.inject.Scope
 
 /**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
+ * Created by Handi Komara.
+ * handikomara22@gmail.com
  */
 
 @Scope

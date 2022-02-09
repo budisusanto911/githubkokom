@@ -7,8 +7,8 @@ import c.r.myapplication.ui.base.IBaseView
 import java.util.ArrayList
 
 /**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
+ * Created by Handi Komara.
+ * handikomara22@gmail.com
  */
 
 interface GalleryContract {

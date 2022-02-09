@@ -9,7 +9,7 @@ import javax.inject.Singleton
 
 /**
  * Created by DOUIRI Ali on 16/03/2018.
- * my.alidouiri@gmail.com
+ * handikomara22@gmail.com
  */
 
 @Singleton

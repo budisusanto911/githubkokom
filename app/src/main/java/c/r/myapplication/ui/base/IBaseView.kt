@@ -3,8 +3,8 @@ package c.r.myapplication.ui.base
 import androidx.annotation.StringRes
 
 /**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
+ * Created by Handi Komara.
+ * handikomara22@gmail.com
  */
 
 interface IBaseView {

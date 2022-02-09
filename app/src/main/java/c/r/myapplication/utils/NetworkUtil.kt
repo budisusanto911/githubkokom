@@ -4,8 +4,8 @@ import android.content.Context
 import android.net.ConnectivityManager
 
 /**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
+ * Created by Handi Komara.
+ * handikomara22@gmail.com
  */
 
 object NetworkUtil {

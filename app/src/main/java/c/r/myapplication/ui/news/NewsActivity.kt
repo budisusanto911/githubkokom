@@ -16,8 +16,8 @@ import java.util.ArrayList
 import javax.inject.Inject
 
 /**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
+ * Created by Handi Komara.
+ * handikomara22@gmail.com
  */
 
 class NewsActivity : BaseActivity(), ContractView, OnItemClickListener {

@@ -7,8 +7,8 @@ import android.graphics.drawable.ColorDrawable
 import c.r.myapplication.R
 
 /**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
+ * Created by Handi Komara.
+ * handikomara22@gmail.com
  */
 
 object DialogUtil {

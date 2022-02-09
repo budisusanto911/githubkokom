@@ -9,8 +9,8 @@ import c.r.myapplication.data.local.entities.ArticleEntity
 import io.reactivex.Flowable
 
 /**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
+ * Created by Handi Komara.
+ * handikomara22@gmail.com
  */
 
 @Dao

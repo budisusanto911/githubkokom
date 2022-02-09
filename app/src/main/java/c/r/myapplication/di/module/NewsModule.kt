@@ -17,8 +17,8 @@ import dagger.Module
 import dagger.Provides
 
 /**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
+ * Created by Handi Komara.
+ * handikomara22@gmail.com
  */
 
 @Module

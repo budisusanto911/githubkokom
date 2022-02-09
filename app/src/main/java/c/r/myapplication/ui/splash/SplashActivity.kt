@@ -14,8 +14,8 @@ import c.r.myapplication.utils.SessionManager
 import javax.inject.Inject
 
 /**
- * Created by Ali DOUIRI on 27/04/2018.
- * my.alidouiri@gmail.com
+ * Created by Handi Komara.
+ * handikomara22@gmail.com
  */
 
 class SplashActivity : BaseActivity(), ContractView {
