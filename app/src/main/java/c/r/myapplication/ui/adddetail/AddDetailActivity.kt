@@ -3,6 +3,8 @@ package c.r.myapplication.ui.adddetail
 import android.R.layout
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -17,7 +19,11 @@ import c.r.myapplication.ui.base.BaseActivity
 import c.r.myapplication.utils.SessionManager
 import javax.inject.Inject
 import c.r.myapplication.ui.adddetail.AdddetailContract.ContractView
+import java.net.IDN
+import java.text.NumberFormat
 import java.util.ArrayList
+import java.util.Currency
+import java.util.Locale
 
 class AddDetailActivity : BaseActivity(), ContractView {
 
@@ -25,7 +31,7 @@ class AddDetailActivity : BaseActivity(), ContractView {
 
   @Inject
   lateinit var mPresenter: AdddetailPresenter
-
+  var current = ""
   private var foto: String = ""
   private lateinit var sessionManager: SessionManager
 
@@ -43,6 +49,29 @@ class AddDetailActivity : BaseActivity(), ContractView {
     sessionManager = SessionManager(this)
     sessionManager.init()
     binding.run {
+      nominal.addTextChangedListener(object: TextWatcher {
+        override fun afterTextChanged(s: Editable?) {}
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+          val stringText = s.toString()
+
+          if(stringText != current) {
+            nominal.removeTextChangedListener(this)
+
+            val locale: Locale = Locale.getDefault()
+            val currency = Currency.getInstance(locale)
+            val cleanString = stringText.replace("[${currency.symbol},.]".toRegex(), "")
+            val parsed = cleanString.toDouble()
+            val formatted = NumberFormat.getCurrencyInstance(locale).format(parsed / 100)
+
+            current = formatted
+            nominal.setText(formatted)
+            nominal.setSelection(formatted.length)
+            nominal.addTextChangedListener(this)
+          }
+        }
+      })
       setSupportActionBar(toolbarView.toolbar)
       toolbarView.tvPageTitle.text = "Add item"
 
@@ -54,7 +83,11 @@ class AddDetailActivity : BaseActivity(), ContractView {
         val id = intent.getStringExtra("cr_id_hdr")
         val tanggal = intent.getStringExtra("cr_tanggal")
         if (id != null) {
-          mPresenter.setSave(no, id, tanggal?:"",nominal.text.toString(), uraian.text.toString(), user?.get(sessionManager.KEY_ID)?: "")
+          var nilai  = nominal.text.toString().replace("Rp", "")
+          nilai  = nilai.replace(".", "")
+
+          Log.i("TAG", "onCreate: $nilai")
+          mPresenter.setSave(no, id, tanggal?:"",nilai, uraian.text.toString(), user?.get(sessionManager.KEY_ID)?: "")
         }
       }
     }
@@ -62,6 +95,7 @@ class AddDetailActivity : BaseActivity(), ContractView {
     supportActionBar?.setDisplayShowHomeEnabled(true)
     mPresenter.getKategori()
   }
+
   override fun setItem(list: ItemSpinner) {
     binding.keterangan.setText(list.item)
   }
