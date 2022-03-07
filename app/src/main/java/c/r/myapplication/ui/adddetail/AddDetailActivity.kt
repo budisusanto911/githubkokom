@@ -59,9 +59,10 @@ class AddDetailActivity : BaseActivity(), ContractView {
           if(stringText != current) {
             nominal.removeTextChangedListener(this)
 
-            val locale: Locale = Locale.getDefault()
+            val locale: Locale = Locale("in", "Id")
             val currency = Currency.getInstance(locale)
-            val cleanString = stringText.replace("[${currency.symbol},.]".toRegex(), "")
+            var cleanString = stringText.replace("[${currency.symbol},.]".toRegex(), "")
+            cleanString = cleanString.replace("p", "")
             val parsed = cleanString.toDouble()
             val formatted = NumberFormat.getCurrencyInstance(locale).format(parsed / 100)
 
